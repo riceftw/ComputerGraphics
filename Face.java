@@ -22,4 +22,5 @@ public class Face
     return ("\nVertices are: " + Arrays.toString(this.index) + " Color: " + 
             this.color.toString());
   }
+  //Test
 }
