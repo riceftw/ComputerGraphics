@@ -11,9 +11,25 @@ public class Vector3D implements Cloneable
     this.z = Z;
   }
 
+  public Vector3D transform(Matrix m) {
+
+    Matrix M = new Matrix();
+    M.setTranslation(x,y,z);
+    for (int i = 0; i < 3; i++) {
+        for (int k = 0; k < 3; k++) {
+            M.m[i][k] = 0;
+        }
+    }
+    
+    Matrix result = m.multiply(M);
+
+    Vector3D resultVector = new Vector3D(result.m[0][3], result.m[1][3], result.m[2][3]);
+    return resultVector;
+  }
+
   public String toString()
   {/* Make it look nice to save your debugging time! */
-    return ("x = " + this.x + "\n y = " + this.y + "\n z = " + this.z);
+    return ("\n x = " + this.x + " y = " + this.y + " z = " + this.z);
   }
 
   public Vector3D clone() throws CloneNotSupportedException{

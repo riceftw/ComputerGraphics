@@ -13,6 +13,25 @@ public class GObject
   	face = f;
   }
 
+  public void transform(Matrix m) {
+
+    for (int i = 0; i < vertex.length; i++){
+      Matrix M = new Matrix();
+
+      M.setTranslation(vertex[i].x, vertex[i].y, vertex[i].z);
+
+      for (int j = 0; j < 3; j++) {
+        for (int k = 0; k < 3; k++) {
+            M.m[j][k] = 0;
+        }
+      }
+
+      Matrix result = m.multiply(M);
+
+      vertex[i] = new Point3D(result.m[0][3], result.m[1][3], result.m[2][3]);
+    }
+  }
+
   public GObject(String fileName){
 
   	File file = new File(fileName);
@@ -42,6 +61,9 @@ public class GObject
   	  	
 
   	  	face[j] = new Face(faceVert, faceColor);
+
+        /** Test **/
+        
   	  }
     }
     catch (FileNotFoundException e){}	
@@ -50,7 +72,7 @@ public class GObject
 
   public String toString(){
   /* Make it look nice to save your debugging time! */
-    return ("Vertices are: " + Arrays.toString(this.vertex) + "\n \nFaces are: " + Arrays.toString(this.face) );
+    return ("\n----------------------------\nVertices are: " + Arrays.toString(this.vertex) + "\n \nFaces are: " + Arrays.toString(this.face) );
   }
 }
 
