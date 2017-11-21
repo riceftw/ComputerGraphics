@@ -3,8 +3,9 @@ public class Camera
 {
 
   public Vector3D getVPN(){/*return a vector that points towards the viewer. Used for face orientation*/
-   
-    return (origin.faceNormal(min, max, origin));
+    
+    Vector3D origin = new Vector3D(0,0,1);
+    return (origin);
   }
 
   protected Point3D cameraTransform(final Point3D p){
@@ -34,9 +35,7 @@ public class Camera
     this.xmax = xmax_;
     this.ymin = ymin_;
     this.ymax = ymax_;
-    this.min = new Point3D(xmin, ymin ,0);
-    this.max = new Point3D(xmax, ymax, 0);
-    this.origin = new Point3D(0,0,0);
+    
   }
 
   public void setViewport(int width, int height){
@@ -45,10 +44,10 @@ public class Camera
     double dY = ymax - ymin;
     double dU = width;
     double dV = height;
-    double umin = -(width/2);
-    double vmin = -(height/2);
-    double umax = width/2;
-    double vmax = height/2;
+    double umin = 0;
+    double vmin = 0;
+    double umax = width;
+    double vmax = height;
     this.bx = dU/dX;
     this.by = dV/dY;
     this.ax = umin - this.bx * xmin;
@@ -67,6 +66,5 @@ public class Camera
 
   private double ax, bx, ay, by;
 
-  public Point3D min, max, origin;
 
 }

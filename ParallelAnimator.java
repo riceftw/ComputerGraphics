@@ -8,7 +8,7 @@ public class ParallelAnimator extends Animator
 
 {
 
-  private static final String[] files={"./testCube.dat", "./testPyramid.dat"};
+  private static final String[] files={"./cube.dat", "./pyramid.dat"};
   
   public ParallelAnimator()
   {
@@ -16,17 +16,14 @@ public class ParallelAnimator extends Animator
     scene = new Scene(files);
     
     /*My things */
-    Matrix m = new Matrix();
-    m.setTranslation(500,250,0);
-    scene.transform(m);
     
     setupCamera();
   }
 
    protected void setupCamera()
   {
-    //camera= new Camera(-50,10,-50,10);
-    camera = new Camera(-3000,500,-3000,500);
+    camera= new Camera(-5,5,-5,5);
+    //camera = new Camera(-3000,500,-3000,500);
   }
 
  
@@ -43,8 +40,8 @@ public class ParallelAnimator extends Animator
     Matrix mX=new Matrix(), mY=new Matrix(), mZ=new Matrix();
     mX.setRotationX(-PI/11);
     //mX.setRotationX(0);
-    //mY.setRotationY(PI/13);
-    mY.setRotationY(PI/16);
+    mY.setRotationY(PI/13);
+    //mY.setRotationY(PI/16);
     mZ.setRotationZ(PI/17); 
     //mZ.setRotationZ(0);
 

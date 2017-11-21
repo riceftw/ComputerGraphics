@@ -53,14 +53,11 @@ public class Point3D
   public static Vector3D faceNormal(Point3D p1, Point3D p2, Point3D p3){
     Vector3D vector1 = new Vector3D(p2.x - p1.x, p2.y - p1.y, p2.z - p1.z);
     Vector3D vector2 = new Vector3D(p3.x - p1.x, p3.y - p1.y, p3.z - p1.z);
-    //System.out.println(vector1.crossProduct(vector2));
     return vector1.crossProduct(vector2);
   }
   public static boolean isFrontFace(Point3D p1, Point3D p2, Point3D p3, Vector3D vpn){
 
-    //System.out.println(faceNormal(p1,p2,p3).dotProduct(vpn));
-    if (faceNormal(p1,p2,p3).dotProduct(vpn) >= 0) {
-      //System.out.println("Here");
+    if (faceNormal(p1,p2,p3).dotProduct(vpn) > 0) {
 
       return true;
     }
