@@ -40,8 +40,8 @@ public class Animator extends JFrame
 
   public final void paint(Graphics g){}
 
-  private static final int WIDTH=1000;
-  private static final int HEIGHT=1000;
+  private static final int WIDTH=400;
+  private static final int HEIGHT=300;
   private static final int INTERVAL=100;
   private BufferedImage image;
   public static void main(String[] args) 

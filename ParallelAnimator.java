@@ -8,14 +8,13 @@ public class ParallelAnimator extends Animator
 
 {
 
-  private static final String[] files={"./cube.dat", "./pyramid.dat"};
+  private static final String[] files={"./cube.dat","./pyramid.dat"};
   
   public ParallelAnimator()
   {
     super();
     scene = new Scene(files);
     
-    /*My things */
     
     setupCamera();
   }
@@ -39,13 +38,10 @@ public class ParallelAnimator extends Animator
     
     Matrix mX=new Matrix(), mY=new Matrix(), mZ=new Matrix();
     mX.setRotationX(-PI/11);
-    //mX.setRotationX(0);
     mY.setRotationY(PI/13);
-    //mY.setRotationY(PI/16);
     mZ.setRotationZ(PI/17); 
-    //mZ.setRotationZ(0);
 
-    scene.transform(mZ.multiply(mY.multiply(mX))); 
+   scene.transform(mZ.multiply(mY.multiply(mX))); 
     
 
     scene.draw(camera,g);

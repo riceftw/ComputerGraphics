@@ -28,7 +28,7 @@ public class Scene
     Vector3D vpn = c.getVPN();
     //System.out.println(vpn.toString());
     
-
+    
     for (int k = 0; k < obj.length; k++) {
       GObject currObj = this.obj[k];
 
@@ -38,11 +38,15 @@ public class Scene
 
         Face currFace = currObj.face[i];
 
+        
+
         Point3D one = currObj.vertex[currFace.index[0]];
         Point3D two = currObj.vertex[currFace.index[1]];
         Point3D three = currObj.vertex[currFace.index[2]];
 
-        if (one.isFrontFace(one,two,three, vpn)) {
+       
+       
+        if (one.isFrontFace(one,two,three,vpn)) {
           int[] xPoints = new int[currFace.index.length];
           int[] yPoints = new int[currFace.index.length];
 
@@ -53,10 +57,13 @@ public class Scene
             yPoints[j] = (int)currVertex.y;
           }
           g.fillPolygon(xPoints, yPoints, currFace.index.length);
+          //g.drawPolyline(xPoints, yPoints, currFace.index.length);
         }
 
       }
     }
+    
+    
 
   }
 
