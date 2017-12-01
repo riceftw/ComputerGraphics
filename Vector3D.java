@@ -22,8 +22,9 @@ public class Vector3D implements Cloneable
     }
     
     Matrix result = m.multiply(M);
+    double w = result.m[3][3];
 
-    Vector3D resultVector = new Vector3D(result.m[0][3], result.m[1][3], result.m[2][3]);
+    Vector3D resultVector = new Vector3D(result.m[0][3]/w, result.m[1][3]/w, result.m[2][3]/w);
     return resultVector;
   }
 

@@ -56,7 +56,7 @@ public class Camera
 
   public String toString(){/* Make it look nice to save your debugging time! */
     String result = ("xmin = " + xmin + ", xmax = " + xmax + ", ymin = " + ymin + ", ymax= " + ymax + 
-                     "\n ax = " + ax + ", bx = " + bx + ", ay = " + ay + ", by = + by");
+                     "\n ax = " + ax + ", bx = " + bx + ", ay = " + ay + ", by = + " + by);
     return result;
   }
 

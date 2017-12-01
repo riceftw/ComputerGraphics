@@ -23,10 +23,8 @@ public class Scene
 
   }
 
-  //wait until next lab for Camera
-  public void draw(Camera c, Graphics g){
+  public void draw(Camera c, Graphics g, boolean wire){
     Vector3D vpn = c.getVPN();
-    //System.out.println(vpn.toString());
     
     
     for (int k = 0; k < obj.length; k++) {
@@ -44,9 +42,20 @@ public class Scene
         Point3D two = currObj.vertex[currFace.index[1]];
         Point3D three = currObj.vertex[currFace.index[2]];
 
-       
-       
-        if (one.isFrontFace(one,two,three,vpn)) {
+       if (wire) {
+          int[] xPointsw = new int[currFace.index.length];
+          int[] yPointsw = new int[currFace.index.length];
+
+          g.setColor(currFace.color);
+          for (int r = 0; r < currFace.index.length; r++) {
+            Point3D currVertex = c.project(currObj.vertex[currFace.index[r]]);
+            xPointsw[r] = (int)currVertex.x;
+            yPointsw[r] = (int)currVertex.y;
+          }
+          g.drawPolyline(xPointsw, yPointsw, currFace.index.length);
+       }
+
+       else if (one.isFrontFace(one,two,three,vpn)) {
           int[] xPoints = new int[currFace.index.length];
           int[] yPoints = new int[currFace.index.length];
 

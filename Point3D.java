@@ -21,12 +21,7 @@ public class Point3D
 
     Matrix result = m.multiply(M);
 
-    /*for (int i = 0; i < 4; i++) {
-        for (int k = 0; k < 4; k++) {
-            System.out.print(" " + result.m[i][k] + " ");
-        }
-        System.out.println("\n");
-    }*/
+    
     double w = result.m[3][3];
     Point3D resultPoint = new Point3D(result.m[0][3]/w , result.m[1][3]/w, result.m[2][3]/w);
     return resultPoint;

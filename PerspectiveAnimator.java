@@ -10,5 +10,6 @@ public class PerspectiveAnimator extends ParallelAnimator
   public static void main(String[] args)
   { 
     new PerspectiveAnimator().loop();
+    
   }
 }
